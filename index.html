@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Inventory Management System</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo">
+          <span class="logo-icon">📦</span>
+          <h2>StockWise</h2>
+        </div>
+
+        <nav class="navigation">
+          <a href="#dashboard" class="nav-link active">
+            <span>▦</span> Dashboard
+          </a>
+
+          <a href="#products" class="nav-link"> <span>📦</span> Products </a>
+
+          <a href="#stock" class="nav-link">
+            <span>↕</span> Stock Management
+          </a>
+
+          <a href="#sales" class="nav-link"> <span>🛒</span> Sales </a>
+
+          <a href="#reports" class="nav-link"> <span>📊</span> Reports </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>Inventory System</p>
+          <small>Version 1.0.0</small>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+          <div>
+            <h1>Dashboard</h1>
+            <p>Welcome back! Here's your inventory overview.</p>
+          </div>
+
+          <div class="user-profile">
+            <div class="avatar">A</div>
+
+            <div>
+              <strong>Admin User</strong>
+              <small>Administrator</small>
+            </div>
+          </div>
+        </header>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="page-section">
+          <div class="section-heading">
+            <div>
+              <h2>Overview</h2>
+              <p>Monitor your inventory performance.</p>
+            </div>
+
+            <button id="add-product-btn" class="primary-btn">
+              + Add Product
+            </button>
+          </div>
+
+          <!-- Statistics Cards -->
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-icon blue">📦</div>
+              <p>Total Products</p>
+              <h2 id="total-products">0</h2>
+              <small>Registered products</small>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon green">📈</div>
+              <p>Total Units in Stock</p>
+              <h2 id="total-stock">0</h2>
+              <small>Available units</small>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon orange">⚠️</div>
+              <p>Low Stock Items</p>
+              <h2 id="low-stock">0</h2>
+              <small>Items needing attention</small>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon purple">💰</div>
+              <p>Inventory Value</p>
+              <h2 id="inventory-value">₦0</h2>
+              <small>Based on cost price</small>
+            </article>
+          </div>
+
+          <!-- Products Section -->
+          <section id="products" class="content-card">
+            <div class="card-heading">
+              <div>
+                <h2>Product Inventory</h2>
+                <p>Manage and monitor your products.</p>
+              </div>
+
+              <input
+                type="search"
+                id="search-product"
+                placeholder="Search products..."
+              />
+            </div>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Cost Price</th>
+                    <th>Selling Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="product-table-body">
+                  <!-- JavaScript inserts products here -->
+                </tbody>
+              </table>
+            </div>
+
+            <p id="empty-message" class="empty-message">
+              No products found. Add your first product.
+            </p>
+          </section>
+
+          <!-- Low Stock Section -->
+          <section class="content-card">
+            <div class="card-heading">
+              <div>
+                <h2>Low Stock Alerts</h2>
+                <p>Products that need restocking.</p>
+              </div>
+            </div>
+
+            <div id="low-stock-list" class="low-stock-list">
+              <!-- JavaScript inserts low-stock alerts here -->
+            </div>
+          </section>
+        </section>
+
+        <!-- Stock Management -->
+        <section id="stock" class="page-section secondary-section">
+          <div class="section-heading">
+            <div>
+              <h2>Stock Management</h2>
+              <p>Monitor and replenish product quantities.</p>
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h3>Stock Operations</h3>
+
+            <p>
+              Select a product from the inventory table to add stock or review
+              its current quantity.
+            </p>
+          </div>
+        </section>
+
+        <!-- Sales -->
+        <section id="sales" class="page-section secondary-section">
+          <div class="section-heading">
+            <div>
+              <h2>Sales Management</h2>
+              <p>Record sales and update inventory quantities.</p>
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h3>Sales Operations</h3>
+
+            <p>
+              The sales form and transaction history will be added in the next
+              development stage.
+            </p>
+          </div>
+        </section>
+
+        <!-- Reports -->
+        <section id="reports" class="page-section secondary-section">
+          <div class="section-heading">
+            <div>
+              <h2>Reports</h2>
+              <p>Review your inventory and business performance.</p>
+            </div>
+          </div>
+
+          <div class="content-card">
+            <h3>Inventory Reports</h3>
+
+            <p>
+              Inventory and sales summaries will be developed as the system
+              progresses.
+            </p>
+          </div>
+        </section>
+
+        <footer class="main-footer">
+          <p>StockWise Inventory Management System</p>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div id="product-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-heading">
+          <h2 id="modal-title">Add New Product</h2>
+
+          <button
+            type="button"
+            id="close-modal"
+            class="close-btn"
+            aria-label="Close form"
+          >
+            &times;
+          </button>
+        </div>
+
+        <form id="product-form">
+          <input type="hidden" id="product-id" />
+
+          <label for="product-name">Product Name</label>
+          <input type="text" id="product-name" required maxlength="100" />
+
+          <label for="product-category">Category</label>
+          <input type="text" id="product-category" required maxlength="60" />
+
+          <label for="product-quantity">Quantity</label>
+          <input
+            type="number"
+            id="product-quantity"
+            min="0"
+            step="1"
+            required
+          />
+
+          <label for="minimum-stock">Minimum Stock Level</label>
+          <input
+            type="number"
+            id="minimum-stock"
+            min="0"
+            step="1"
+            value="10"
+            required
+          />
+
+          <label for="cost-price">Cost Price (₦)</label>
+          <input type="number" id="cost-price" min="0" step="0.01" required />
+
+          <label for="selling-price">Selling Price (₦)</label>
+          <input
+            type="number"
+            id="selling-price"
+            min="0"
+            step="0.01"
+            required
+          />
+
+          <div class="form-actions">
+            <button type="button" id="cancel-modal" class="secondary-btn">
+              Cancel
+            </button>
+
+            <button type="submit" class="primary-btn">Save Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
